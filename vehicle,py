@@ -1,0 +1,67 @@
+vehicles = []
+
+def add_vehicle():
+    number = input("Enter Vehicle Number: ")
+    name = input("Enter Vehicle Name: ")
+    model = input("Enter Model: ")
+    owner = input("Enter Owner Name: ")
+
+    vehicle = {
+        "number": number,
+        "name": name,
+        "model": model,
+        "owner": owner
+    }
+
+    vehicles.append(vehicle)
+    print("\nVehicle added successfully!")
+
+
+def display_vehicles():
+    if len(vehicles) == 0:
+        print("\nNo vehicles available.")
+    else:
+        print("\n--- Vehicle Details ---")
+        for v in vehicles:
+            print("Vehicle Number :", v["number"])
+            print("Vehicle Name   :", v["name"])
+            print("Model          :", v["model"])
+            print("Owner Name     :", v["owner"])
+            print("------------------------")
+
+
+def search_vehicle():
+    number = input("Enter Vehicle Number to search: ")
+
+    for v in vehicles:
+        if v["number"] == number:
+            print("\nVehicle Found!")
+            print("Vehicle Number :", v["number"])
+            print("Vehicle Name   :", v["name"])
+            print("Model          :", v["model"])
+            print("Owner Name     :", v["owner"])
+            return
+
+    print("\nVehicle not found.")
+
+
+while True:
+    print("\n===== VEHICLE MANAGEMENT SYSTEM =====")
+    print("1. Add Vehicle")
+    print("2. Display Vehicles")
+    print("3. Search Vehicle")
+    print("4. Exit")
+
+    choice = input("Enter your choice: ")
+
+    if choice == "1":
+        add_vehicle()
+    elif choice == "2":
+        display_vehicles()
+    elif choice == "3":
+        search_vehicle()
+    elif choice == "4":
+        print("\nThank you!")
+        break
+    else:
+        print("\nInvalid choice!")
